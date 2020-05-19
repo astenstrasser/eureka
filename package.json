@@ -1,0 +1,23 @@
+{
+    "name": "eureka",
+    "version": "1.0.0",
+    "description": "A Telegram chatbot that informs currency rates",
+    "main": "eureka.js",
+    "scripts": {
+        "test": "npm test"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/astenstrasser/eureka.git"
+    },
+    "author": "Alexandra M. Stenstrasser",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/astenstrasser/eureka/issues"
+    },
+    "homepage": "https://github.com/astenstrasser/eureka#readme",
+    "dependencies": {
+        "dotenv": "^8.2.0",
+        "telegraf": "^3.38.0"
+    }
+}
