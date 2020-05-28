@@ -2,7 +2,7 @@
     "name": "eureka",
     "version": "1.0.0",
     "description": "A Telegram chatbot that informs currency rates",
-    "main": "eureka.js",
+    "main": "src/eureka.js",
     "scripts": {
         "start": "node eureka.js",
         "test": "jest"

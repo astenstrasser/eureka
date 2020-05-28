@@ -9,21 +9,21 @@ const bot = new Telegraf(process.env.BOT_TOKEN)
 console.log('Running Bot!')
 
 const commandsKeyboard = Markup.inlineKeyboard([
-    Markup.callbackButton("EUR-BRL exchange rate", "euro"),
-    Markup.callbackButton("USD-BRL exchange rate", "dolar")
+    Markup.callbackButton("Cotação EUR-BRL", "euro"),
+    Markup.callbackButton("Cotação USD-BRL", "dollar")
 ], { columns: 1 }).extra();
 
 bot.start(ctx => { ctx.reply(`Bom dia, ${ctx.message.from.first_name}!`, commandsKeyboard) });
 
 bot.action("euro", (ctx) => {
     exchangeApi.getCurrencyRate('EUR').then((euro) => {
-        ctx.reply(`Cotação atual do Euro: R$${euro}`, commandsKeyboard)
+        euro && ctx.reply(`Cotação atual do Euro: R$${euro}`, commandsKeyboard)
     })
 });
 
-bot.action("dolar", (ctx) => {
-    exchangeApi.getCurrencyRate('USD').then((dolar) => {
-        ctx.reply(`Cotação atual do Dolar: R$${dolar}`, commandsKeyboard)
+bot.action("dollar", (ctx) => {
+    exchangeApi.getCurrencyRate('USD').then((dollar) => {
+        dollar && ctx.reply(`Cotação atual do Dólar: R$${dollar}`, commandsKeyboard)
     })
 });
 
