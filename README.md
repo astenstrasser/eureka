@@ -1,5 +1,6 @@
-
-<center><img src='./assets/logo.png'></center>
+<p align="center"> 
+<img src='./assets/logo.png'> 
+</p>
 
 
 # Eureka
