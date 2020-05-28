@@ -9,9 +9,11 @@ const { PORT, URL, BOT_TOKEN } = process.env;
 
 const bot = new Telegraf(BOT_TOKEN)
 bot.telegram.setWebhook(`${URL}/bot${BOT_TOKEN}`);
-bot.startWebhook(`/bot${BOT_TOKEN}`, null, PORT)
+bot.startWebhook(`/bot${BOT_TOKEN}`, null, PORT);
+bot.telegram.getWebhookInfo().then(res => { console.log(res) })
 
-console.log(`Running bot at port ${PORT}`)
+
+console.log(`Running bot at port ${PORT}`);
 
 const commandsKeyboard = Markup.inlineKeyboard([
     Markup.callbackButton("Cotação EUR-BRL", "euro"),
