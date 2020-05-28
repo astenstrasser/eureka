@@ -28,12 +28,11 @@ bot.action("dolar", (ctx) => {
 });
 
 bot.on('sticker', (ctx) => {
-    console.log(ctx.message.from.first_name)
-    return ctx.reply('I could also send a sticker, but I won\'t')
+    return ctx.replyWithSticker('CAACAgUAAxkBAAEDOoBez8sHE_Ms8gERf0Vh6H6oARN0UwACzgMAAukKyAM5WmqeDxUOuBkE')
 });
 
 bot.hears(/([a-z])/, ({ reply }) => {
-    reply('Invalid command. Try one of these:', commandsKeyboard)
+    reply('Comando inválido. Tente um desses:', commandsKeyboard)
 });
 
 bot.launch();
