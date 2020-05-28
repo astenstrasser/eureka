@@ -11,7 +11,22 @@ jobs:
           steps:
             - run: npm install
             - run: npm test
+
+  deploy-on-heroku:
+    steps:
+      - checkout
+      - run:
+          name: Deploy on Heroku
+          command: |
+            git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME_STG.git master
+
 workflows:
-    build-and-test:
+    deploy:
       jobs:
-        - build-and-test      
+        - build-and-test   
+        - deploy:
+          requires:
+            - build-and-test
+          filters:
+            branches:
+              only: master   
