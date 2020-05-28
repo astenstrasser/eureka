@@ -5,8 +5,13 @@ const Markup = require('telegraf/markup');
 
 const exchangeApi = require('./exchange-api');
 
-const bot = new Telegraf(process.env.BOT_TOKEN)
-console.log('Running Bot!')
+const { PORT, URL, BOT_TOKEN } = process.env;
+
+const bot = new Telegraf(BOT_TOKEN)
+bot.telegram.setWebhook(`${URL}/bot${BOT_TOKEN}`);
+bot.startWebhook(`/bot${BOT_TOKEN}`, null, PORT)
+
+console.log(`Running bot at port ${PORT}`)
 
 const commandsKeyboard = Markup.inlineKeyboard([
     Markup.callbackButton("Cotação EUR-BRL", "euro"),
